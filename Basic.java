@@ -6,7 +6,9 @@ class Basic{
         int a = 10;
         int b = 30;
         int sum = a + b;
+        int sub = a - b;
         System.out.println("Sum is: " + sum);
+        System.out.println("Sub is: " + sub);
     }
 }
 
