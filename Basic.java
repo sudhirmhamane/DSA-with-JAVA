@@ -1,501 +1,370 @@
 
 
-class Basic{
+/**
+ * Basic Java Concepts and Examples
+ *
+ * This file contains fundamental Java programming concepts with examples.
+ * It covers data types, operators, control structures, loops, and basic I/O.
+ *
+ * Author: [Your Name]
+ * Date: January 17, 2026
+ */
+
+import java.util.Scanner;
+
+public class Basic {
+
     public static void main(String[] args) {
-        System.out.println("hello world!");
+        System.out.println("=== Java Basics Tutorial ===\n");
+
+        // 1. Hello World and Basic Operations
+        helloWorldExample();
+
+        // 2. Data Types
+        dataTypesExample();
+
+        // 3. Type Conversion and Casting
+        typeConversionExample();
+
+        // 4. Operators
+        operatorsExample();
+
+        // 5. Control Structures
+        controlStructuresExample();
+
+        // 6. Loops
+        loopsExample();
+
+        // 7. Arrays (Basic)
+        arraysExample();
+
+        // 8. User Input
+        userInputExample();
+    }
+
+    /**
+     * 1. Hello World and Basic Arithmetic Operations
+     */
+    public static void helloWorldExample() {
+        System.out.println("1. Hello World and Basic Operations:");
+        System.out.println("Hello, World!");
+
         int a = 10;
         int b = 30;
         int sum = a + b;
         int sub = a - b;
-        System.out.println("Sum is: " + sum);
-        System.out.println("Sub is: " + sub);
+        int mul = a * b;
+        double div = (double) a / b; // Type casting for decimal division
+
+        System.out.println("a = " + a + ", b = " + b);
+        System.out.println("Sum: " + sum);
+        System.out.println("Subtraction: " + sub);
+        System.out.println("Multiplication: " + mul);
+        System.out.println("Division: " + String.format("%.2f", div));
+        System.out.println();
+    }
+
+    /**
+     * 2. Data Types in Java
+     *
+     * Primitive Data Types:
+     * - byte: 1 byte, range: -128 to 127
+     * - short: 2 bytes, range: -32,768 to 32,767
+     * - int: 4 bytes, range: -2,147,483,648 to 2,147,483,647
+     * - long: 8 bytes, range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+     * - float: 4 bytes, for decimal numbers
+     * - double: 8 bytes, for decimal numbers (more precise)
+     * - char: 2 bytes, for single characters
+     * - boolean: 1 byte, true or false
+     *
+     * Non-Primitive Data Types:
+     * - String, Arrays, Classes, Interfaces, etc.
+     */
+    public static void dataTypesExample() {
+        System.out.println("2. Data Types:");
+
+        // Primitive data types
+        byte byteVar = 100;
+        short shortVar = 1000;
+        int intVar = 100000;
+        long longVar = 1000000000L;
+        float floatVar = 3.14f;
+        double doubleVar = 3.141592653589793;
+        char charVar = 'A';
+        boolean boolVar = true;
+
+        System.out.println("byte: " + byteVar);
+        System.out.println("short: " + shortVar);
+        System.out.println("int: " + intVar);
+        System.out.println("long: " + longVar);
+        System.out.println("float: " + floatVar);
+        System.out.println("double: " + doubleVar);
+        System.out.println("char: " + charVar);
+        System.out.println("boolean: " + boolVar);
+
+        // Non-primitive
+        String stringVar = "Hello Java!";
+        System.out.println("String: " + stringVar);
+        System.out.println();
+    }
+
+    /**
+     * 3. Type Conversion and Casting
+     *
+     * Type Conversion (Widening/Implicit): Smaller to larger data types
+     * byte -> short -> int -> long -> float -> double
+     *
+     * Type Casting (Narrowing/Explicit): Larger to smaller data types
+     * Requires explicit casting: (targetType) value
+     */
+    public static void typeConversionExample() {
+        System.out.println("3. Type Conversion and Casting:");
+
+        // Implicit conversion (widening)
+        int intNum = 100;
+        long longNum = intNum; // int to long
+        float floatNum = intNum; // int to float
+        double doubleNum = intNum; // int to double
+
+        System.out.println("Implicit Conversion:");
+        System.out.println("int to long: " + longNum);
+        System.out.println("int to float: " + floatNum);
+        System.out.println("int to double: " + doubleNum);
+
+        // Explicit casting (narrowing)
+        double pi = 3.14159;
+        float piFloat = (float) pi; // double to float
+        int piInt = (int) pi; // double to int (loses decimal part)
+
+        System.out.println("Explicit Casting:");
+        System.out.println("double to float: " + piFloat);
+        System.out.println("double to int: " + piInt + " (decimal part lost)");
+        System.out.println();
+    }
+
+    /**
+     * 4. Operators in Java
+     *
+     * Arithmetic: +, -, *, /, %
+     * Relational: ==, !=, >, <, >=, <=
+     * Logical: &&, ||, !
+     * Assignment: =, +=, -=, *=, /=, %=
+     * Unary: ++, --
+     */
+    public static void operatorsExample() {
+        System.out.println("4. Operators:");
+
+        int a = 10, b = 3;
+
+        // Arithmetic operators
+        System.out.println("Arithmetic Operators:");
+        System.out.println("a + b = " + (a + b));
+        System.out.println("a - b = " + (a - b));
+        System.out.println("a * b = " + (a * b));
+        System.out.println("a / b = " + (a / b));
+        System.out.println("a % b = " + (a % b));
+
+        // Relational operators
+        System.out.println("Relational Operators:");
+        System.out.println("a == b: " + (a == b));
+        System.out.println("a != b: " + (a != b));
+        System.out.println("a > b: " + (a > b));
+        System.out.println("a < b: " + (a < b));
+        System.out.println("a >= b: " + (a >= b));
+        System.out.println("a <= b: " + (a <= b));
+
+        // Logical operators
+        boolean x = true, y = false;
+        System.out.println("Logical Operators:");
+        System.out.println("x && y: " + (x && y));
+        System.out.println("x || y: " + (x || y));
+        System.out.println("!x: " + (!x));
+
+        // Assignment operators
+        System.out.println("Assignment Operators:");
+        int c = 5;
+        System.out.println("c = " + c);
+        c += 3; // c = c + 3
+        System.out.println("c += 3: " + c);
+        c *= 2; // c = c * 2
+        System.out.println("c *= 2: " + c);
+
+        // Unary operators
+        System.out.println("Unary Operators:");
+        int d = 5;
+        System.out.println("d = " + d);
+        System.out.println("++d = " + (++d)); // Pre-increment
+        System.out.println("d++ = " + (d++)); // Post-increment
+        System.out.println("d after post-increment = " + d);
+        System.out.println("--d = " + (--d)); // Pre-decrement
+        System.out.println();
+    }
+
+    /**
+     * 5. Control Structures
+     *
+     * if-else, switch-case statements
+     */
+    public static void controlStructuresExample() {
+        System.out.println("5. Control Structures:");
+
+        int age = 20;
+
+        // if-else
+        System.out.println("if-else Example:");
+        if (age >= 18) {
+            System.out.println("You are an adult.");
+        } else {
+            System.out.println("You are a minor.");
+        }
+
+        // if-else if-else
+        System.out.println("if-else if-else Example:");
+        if (age >= 18) {
+            System.out.println("Adult: You can drive and vote.");
+        } else if (age >= 13) {
+            System.out.println("Teenager.");
+        } else {
+            System.out.println("Child.");
+        }
+
+        // switch-case
+        System.out.println("switch-case Example:");
+        int day = 3;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("Invalid day");
+        }
+        System.out.println();
+    }
+
+    /**
+     * 6. Loops
+     *
+     * while, do-while, for loops
+     */
+    public static void loopsExample() {
+        System.out.println("6. Loops:");
+
+        // while loop
+        System.out.println("while loop (print numbers 1 to 5):");
+        int i = 1;
+        while (i <= 5) {
+            System.out.print(i + " ");
+            i++;
+        }
+        System.out.println();
+
+        // do-while loop
+        System.out.println("do-while loop (print numbers 1 to 5):");
+        i = 1;
+        do {
+            System.out.print(i + " ");
+            i++;
+        } while (i <= 5);
+        System.out.println();
+
+        // for loop
+        System.out.println("for loop (print numbers 1 to 5):");
+        for (int j = 1; j <= 5; j++) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
+
+        // Enhanced for loop (for-each)
+        System.out.println("Enhanced for loop:");
+        int[] numbers = {1, 2, 3, 4, 5};
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        System.out.println();
+    }
+
+    /**
+     * 7. Arrays (Basic)
+     *
+     * Arrays are fixed-size, homogeneous data structures
+     */
+    public static void arraysExample() {
+        System.out.println("7. Arrays:");
+
+        // Declare and initialize array
+        int[] arr = {10, 20, 30, 40, 50};
+
+        // Print array elements
+        System.out.println("Array elements:");
+        for (int j = 0; j < arr.length; j++) {
+            System.out.print(arr[j] + " ");
+        }
+        System.out.println();
+
+        // Array operations
+        System.out.println("Array length: " + arr.length);
+        System.out.println("First element: " + arr[0]);
+        System.out.println("Last element: " + arr[arr.length - 1]);
+
+        // Sum of array elements
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        System.out.println("Sum of array elements: " + sum);
+        System.out.println();
+    }
+
+    /**
+     * 8. User Input
+     *
+     * Using Scanner class for input
+     */
+    public static void userInputExample() {
+        System.out.println("8. User Input:");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        System.out.print("Enter your height (in cm): ");
+        double height = scanner.nextDouble();
+
+        System.out.println("\nHello, " + name + "!");
+        System.out.println("You are " + age + " years old.");
+        System.out.println("Your height is " + height + " cm.");
+
+        scanner.close();
+        System.out.println();
     }
 }
 
-// DATA TYPES IN JAVA
-//  TWO TYPES
-// 1) PRIMITIVE - WHICH ARE already CREATED BY JAVA ITSELF
-// ex-byte,short,char,boolean,int,long,float,double etc.
 
-// 1) byte:
-// data:- 1byte
-// mamory range:-[-128 to 127]
 
-// 2) short:
-// data:- 2bytes
-// MR:- []
 
-// 3) char:
-// data:- 2bytes
-// MR:- [a to z , A to Z]
-
-// 4) boolean:
-// data:- 1bytes
-// MR:-[true,false]
-
-// 5) int:
-// data: 4bytes
-// MR:[-2B to +2B]
-
-// 6) long:
-// data: 8bytes
-
-// 7) float:
-// data: 4bytes
-
-// 8) double:
-// data: 8bytes
-
-// 2) NON -PRIMITIVE - WHICH IS CREATED BY USERS
-// ex- string,array,class,object,interface etc.
-
-
-
-
-
-// TYPE CONVERSION - AK TYPE KE DATA KO DUSRE TYPE KE DATA ME
-//                   CONVERT KARTE HAI. IT IS ALSO CALLED AS WIDENING CONVESION OR
-//                    IMPLICIT CONVERSION.
-
-//   CONVERSION HAPPENS WHEN
-
-//  A) TYEP COMPATIBALE
-//  B) DESTINATION TYPE > SOURCE TYPE
-// INT VALUE CAN STORE IN LONG BUT LONG VALUE CANNOT STORE IN INT BEACAUSE THE MENORY
-//            BYTE OF INT IS LESS THAN LONG
-// INT =4 BYTES
-// LONG = 8 BYTES
-
-// TYPE CONVERSION POSSIBILITIES:
-// BYTE->SHORT->INT->FLOAT->LONG->DOUBLE
-
-// TYPE CASTING - VO COVERSION HAI JISE JAVA ALLOW NAHI KARTA TO USKO JABRJSTISE KAR TE HAI.
-//  IT IS ALSO CALLED AS NARROWING CONVERSION AND EXPLICIT CONV.
-// FOR EXAMPLE
-
-// class Basic{
-//     public static void main(String[] args) {
-//         float number=99.99f;
-//         int number2= (int) number;
-//         System.out.println(number2);
-
-//     }
-// }
-
-// TYPE PROMOTION IN EXPRESSIONS:
-// RULES:
-// 1) JOBHI AAPKA BYTE ,SHORT,CHAR (CHOTE DATA TYPE) TYPE KA DATA
-// EXPRESSION ME HAI JAVA USE INT ME CONVERT KARDETA HAI.
-// 2) AGAR KISI EXPRESSION KE AANDAR LONG , FLOAT , DOUBLE HAI TO PURA EXPRESSION
-// LONGE ME YA FLOAT ME DOUBLE ME CONVERT HOGA (LARGEST POSSIBLE DATA TYPE).
-
-//  WRONG :-
-// byte b=5;
-// b=b*2;
-
-// RIGHT :-
-// byte b=5;
-// b= (byte)(b*2);
-
-
-
-
-// class Basic {
-//     public static void main(String[] args) {
-//         int a=3;
-//         int b=5;
-//         int sum;
-//         sum=a+b;
-//         System.out.println("sum is:"+sum);
-
-//     }
-// }
-
-// import java.util.Scanner;//package
-
-
-
-// class Basic{
-//     public static void main(String[] args) {  //main function
-//         System.out.println("enter 2 number:");
-//         Scanner sc=new Scanner(System.in);
-//         int a=sc.nextInt();
-//         int b=sc.nextInt();
-//         int sum;
-//         sum=a+b;
-//         System.out.println("sum is :"+sum);
-
-
-//     }
-// }
-
-
-// AREA OF CIRCLE
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args) {
-//         Scanner sc=new Scanner(System.in);
-//         System.out.println("enter value of rad:");
-//         float rad=sc.nextFloat();
-//         float area = 3.14f*rad*rad;  //java har decimal value ko double
-//                                         leta hai isliye hame decimal value ke aage
-//                                             f likhana padta hai( in case of float.)
-// //
-
-//         System.out.println("area is :"+ area);
-// }
-// }
-
-
-// import java.util.Scanner;
-// class Basic{
-//     public static void main(String[] args) {
-//         System.out.println("enter age:");
-//         Scanner sc=new Scanner(System.in);
-//         int age=sc.nextInt();
-
-//         if(age>=18){
-//             System.out.println("adult :drive,vote");
-//         }
-//         if(age>13 && age<18){
-//             System.out.println("teenager");
-//         }
-//         else{
-//             System.out.println("not adult");
-//         }
-//     }
-
-// }
-
-
-// import java.util.Scanner;
-// class Basic{
-//     public static void main(String[] args) {
-//         Scanner sc=new Scanner(System.in);
-//         System.out.println("enter any two num:");
-//         int A=sc.nextInt();
-//         int B=sc.nextInt();
-//         if(A>B){
-//             System.out.println(A+ "is larger than" +B);
-//         }
-//         else{
-//             System.out.println(A+ "is smaller than" +B);
-//         }
-//     }
-// }
-
-
-
-// while Loop
-
-// while(condition){
-//     do something
-// }
-
-// class Bacis{
-//     public static void main(String[] args) {
-//         int counter= 0;
-//         while(counter<100){
-//             System.out.println("hello world");
-//             counter++;
-//         }
-//         System.out.println("printed HW 100x");
-//     }
-// }
-
-
-// calculate simple interest
-
-// simple interest = P*R*T/100
-
-// class Basic{
-//     public static void main(String[] args) {
-//         int P,R,T;
-//         P=10000;
-//         R=4;
-//         T=12;
-//         int SI;
-//         SI=(P*R*T)/100;
-//         System.out.println("simpe interest is:"+SI);
-//     }
-// }
-
-
-// print pattern
-
-// print if a number is odd or even
-
-// (n%2==0)
-
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args) {
-//       Scanner sc=new Scanner(System.in);
-
-//       int number=sc.nextInt();
-//       if(number%2==0){
-//         System.out.println("even");
-//       }
-//       else{
-//         System.out.println("odd");
-//       }
-//     }
-// }
-
-
-// print num from 1 to 100
-// using while loop
-
-// class Basic{
-//     public static void main(String[] args) {
-//         int counter=1;
-//         while(counter<=100){
-//             System.out.println(counter+" ");
-//             counter++;
-//         }
-//         System.out.println();
-//     }
-// }
-
-
-// 1)arithmatic operater:-
-// 2)relational
-// 3)logical
-// 4)bitwise opetator
-// 5)assigment
-
-
-// 1)Arithmatic Operator
-
-// a) Binary Operator :- [+,-,*,/,%]
-
-// b) Unary Operator :-[++,--]
-
-// a=a+1 or a=a-1 we will right it as follows
-// a++ or a-- and ++a or a--
-// (++)is called as increment operator
-// (--)is called as decrement operator
-
-// in(++)two types
-// a) pre increment operator
-// b) post decrement operator
-
-// 3)Relational Operator :-['==', !=, >, <, >=, <=]
-
-
-// 4) Logical Operator :-[&&,||,!]
-
-
-
-
-// 5) Assigment Operator:-[=,+=,-=,*=,/=,%=]
-
-
-
-// else if statement
-
-// if(condition1){
-
-// }
-// else if(condition 2){ // if write else if to uper vala if true hai to
-//                            compailar else if co check nahi karega
-
-// }
-// else{
-
-// }
-
-// class Basic{
-//     public static void main(String[] args) {
-//         int age=22;
-
-//         if(age>=18){
-//             System.out.println("adult");
-//         }
-//         else if(age>=13 && age<18){
-//             System.out.println("teenager");
-//         }
-//         else{
-//             System.out.println("child");
-//         }
-//     }
-// }
-
-// 20/10/2023
-
-
-// FIND MAX OFF 3 NUMBER
-
-// pseudo code :
-
-// 1) start
-// 2) input a,b,and c
-// 3) if a>b do
-//       if a>c do
-//          print 'a'
-//       else
-//          print "c"
-//    else
-//       if b>c do
-//          print "b"
-//      else
-//          print "c"
-// 4) EXIT
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args){
-//         Scanner sc=new Scanner(System.in);
-//         System.out.println("enter any 3 numbers");
-//         int a=sc.nextInt();
-//         int b=sc.nextInt();
-//         int c=sc.nextInt();
-
-//         if(a>b){
-//             if(a>c){
-//                 System.out.println(a +"is maximum");
-
-//             }
-//             else{
-//                 System.out.println(c +"is maximum");
-//             }
-
-//         }
-//         else
-//          if(b>c){
-//             System.out.println(b +"is maximun");
-//          }
-//          else{
-//             System.out.println(c +"is maximum");
-//          }
-//         }
-// }
-
-
-// PRINT NUMBER FROM 1 TO "N"
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args){
-//         Scanner sc=new Scanner(System.in);
-//         System.out.println("enter any range");
-//         int range=sc.nextInt();
-//         int counter=1;
-
-//         while(counter <= range){
-//             System.out.print(counter + " ");
-//             counter++;
-//         }
-//           System.out.println();
-//     }
-// }
-
-
-// RELATIONAL OPRATORS
-
-// == to check equal value
-// != not equal to
-// >  greater
-// <  smaller
-// >= greater than equal to
-// <= smaller than equal to
-
-//  21/10/2023
-
-//  FIND IF NUMBER IS PRIME
-
-//  PRIME - THE NUMBER WHICH IS DIVISIBLE BY 1 AND ITSELF
-
-// 1) start
-// 2) input n
-// 3) div=2
-// 4) while div<N do
-//    if N%div==0 do
-//       print not prime num
-//         exit
-//    else
-//       div=div+1
-// 5) print prime num
-// 6) Exit
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args){
-//         Scanner sc=new Scanner(System.in);
-//         System.out.println("enter any num");
-//         int num=sc.nextInt();
-//         int div=2;
-
-//         while(div<num){
-//             if(num%div==0){
-//                 System.out.println(num +"is not prime");
-//                 break;
-//             }
-//             else{
-//                 div=div+1;
-//                 System.out.println(num +"is prime");
-//                 break;
-
-//                         }
-
-//         }
-//     }
-//     }
-
-
-// SUM OF FIRST N NATURAL NUMBER
-
-// 1) start
-// 2) input n
-// 3) val=1 & sum=0
-// 4) while val<=n do
-//    sum = sum+value
-//    value++
-// 5) print sum
-// 6) Exit
-
-// import java.util.*;
-// class Basic{
-//     public static void main(String[] args) {
-//         System.out.println("enter any num:");
-//         Scanner sc=new Scanner(System.in);
-//         int num=sc.nextInt();
-//         int val=1;
-//         int sum=0;
-
-//         while(val <= num){
-//             sum=sum+val;
-//             val++;
-//         }
-//         System.out.println("sum is :"+sum);
-//     }
-// }
-
-// import java.util.*;
-
-/**
- * Basic
- //  */
-// public class Basic {
-
-//     public static void main(String[] args) {
-
-//         int a = 10;
-//         int b = 18;
-//         int c = 13;
-
-//         if(a>b){
-//             if(a>c)
-//             System.out.println("a is largest num");
-//             else{
-//                 System.out.println("b is the largest num");
-//             }
-
-//         }
-//     }
-// }
 
 
 
